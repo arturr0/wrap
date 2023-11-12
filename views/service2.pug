@@ -1,0 +1,37 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  link(rel='stylesheet' href='public/css/main.css')
+  title Animated Dropdown Menu
+.content
+  .menu
+    div
+      a#home.homeLink(href='/') Home
+    .dropdown
+      a.services Services
+      .dropdown-content.hidden(style='display: none;')
+        a.service(href='/service1' onclick='hidemenu()') Service 1
+        a.service(href='/service2' onclick='hidemenu()') Service 2
+        a.service(href='/service3' onclick='hidemenu()') Service 3
+    div
+      a.about(href='#') About
+    div
+      a.contact(href='#') Contact
+.main
+  .mainContent
+    #pageviews-count1(style='color: white;')
+img.code(src='https://cdn.glitch.global/79f4bbec-285c-4a73-90c3-8d4725ed1def/code1.jpeg?v=1699107700829')
+script(src='https://code.jquery.com/jquery-3.6.0.min.js')
+script(type='text/javascript').
+      window.addEventListener('load', function () {
+      // Get the 'views' value from localStorage
+      const views = localStorage.getItem('views');
+      console.log(views);
+      // Update the content on the service1 page with the 'views' value
+      const pageviewsCount = document.getElementById('pageviews-count1');
+      if (pageviewsCount) {
+      pageviewsCount.textContent = views; // Display 'views' on the service1 page
+      }
+      });
+script(src='public/dropdown.js')
